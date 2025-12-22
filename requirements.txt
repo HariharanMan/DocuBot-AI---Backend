@@ -1,0 +1,27 @@
+# Core FastAPI
+fastapi
+uvicorn
+
+# File upload
+python-multipart
+
+# Document loaders
+pypdf
+python-docx
+
+# Embeddings
+sentence-transformers
+faiss-cpu
+numpy
+
+# LLM (Gemini – current)
+google-generativeai
+python-dotenv
+
+# Database
+pymongo
+
+# Auth & Security
+python-jose
+passlib==1.7.4
+bcrypt==3.2.2
