@@ -15,7 +15,7 @@ faiss-cpu
 numpy
 
 # LLM (Gemini – current)
-google-generativeai
+google-genai
 python-dotenv
 
 # Database

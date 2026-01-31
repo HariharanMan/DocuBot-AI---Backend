@@ -1,13 +1,19 @@
 import os
-import google.generativeai as genai
 from dotenv import load_dotenv
+from google.genai import Client
 
 load_dotenv()
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-model = genai.GenerativeModel("gemini-2.5-flash")
+client = Client(api_key=os.getenv("GEMINI_API_KEY"))
 
-def answer_question(context, question):
+MODEL_NAME = "gemini-2.5-flash"
+
+
+def answer_question(context: str, question: str) -> str:
+    """
+    Answers a question strictly using provided document context.
+    """
+
     prompt = f"""
     You are an AI assistant.
 
@@ -23,5 +29,10 @@ def answer_question(context, question):
     Question:
     {question}
     """
-    response = model.generate_content(prompt)
-    return response.text.strip()
+
+    result = client.models.generate_content(
+        model=MODEL_NAME,
+        contents=prompt
+    )
+
+    return result.text.strip()
